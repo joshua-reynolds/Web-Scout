@@ -147,4 +147,32 @@ else:
     # send alert
     print('AB-5000 is available {} MT'.format(dt_string))
     notify.send('AB-5000 is available {} MT'.format(dt_string))
-    webbrowser.open(source)  
+    webbrowser.open(source)
+    
+#=====================
+# REP AB 5100
+#=====================
+
+# open the url
+source = urllib.request.urlopen('https://www.repfitness.com/rep-ab-5100').read()
+
+#get the soup
+soup = bs.BeautifulSoup(source,'lxml')
+availability = soup.findAll("p", class_="availability out-of-stock")
+
+# intialize notify
+notify = Notify()
+
+# get current time
+now = datetime.now()
+dt_string = now.strftime("%m/%d/%Y %H:%M")
+
+# Check if availability tag object has length greater than 0
+if len(availability) > 0:
+    print('AB-5100 is not available {}'.format(dt_string))
+    #notify.send('AB-5100 is not available {}'.format(dt_string))    
+    
+else:
+    # send alert
+    print('AB-5100 is available {}!'.format(dt_string))
+    notify.send('AB-5100 is available {}!'.format(dt_string))

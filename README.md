@@ -1,5 +1,5 @@
 # Web-Scout
-Check availability of various online products using python and web scraping
+Check availability of various, fast-selling online products using python and web scraping
 
 ## Dependencies
 - notify_run
