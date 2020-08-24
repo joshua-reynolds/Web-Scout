@@ -51,12 +51,12 @@ notify = Notify()
 
 # if price tag has a value send the notification
 if amz_price:
-    print('Powerblock LCS is available {}!'.format(dt_string))
-    notify.send('Powerblock LCS is available {}!'.format(dt_string))
+    print('Powerblock LCS is available {}'.format(dt_string))
+    notify.send('Powerblock Large Compact Stand is available {} MT'.format(dt_string))
     webbrowser.open(url)
 else:
-    print('Powerblock LCS is not available {}!'.format(dt_string))
-    #notify.send('Powerblock LCS is not available {}!'.format(dt_string))
+    print('Powerblock LCS is not available {}'.format(dt_string))
+    #notify.send('(Test) Powerblock LCS is not available {}'.format(dt_string))
     
 # close the browser window
 driver.quit()
@@ -82,12 +82,13 @@ dt_string = now.strftime("%m/%d/%Y %H:%M")
 # Check if availability tag object has length greater than 0
 if len(availability) > 0:
     print('AB-3000 is not available {}'.format(dt_string))
-    #notify.send('AB-3000 is not available {}'.format(dt_string))    
+    #notify.send('(Test) AB-3000 is not available {}'.format(dt_string))    
     
 else:
     # send alert
-    print('AB-3000 is available {}'.format(dt_string))
-    notify.send('AB-3000 is available {}!'.format(dt_string))  
+    print('AB-3000 is available {} MT'.format(dt_string))
+    notify.send('AB-3000 is available {} MT'.format(dt_string))
+    webbrowser.open(source)    
 
 #=====================
 # REP AB 3100
@@ -110,12 +111,13 @@ dt_string = now.strftime("%m/%d/%Y %H:%M")
 # Check if availability tag object has length greater than 0
 if len(availability) > 0:
     print('AB-3100 is not available {}'.format(dt_string))
-    #notify.send('AB-3100 is not available {}'.format(dt_string))    
+    #notify.send('(Test) AB-3100 is not available {}'.format(dt_string))    
     
 else:
     # send alert
-    print('AB-3100 is available {}!'.format(dt_string))
-    notify.send('AB-3100 is available {}!'.format(dt_string))  
+    print('AB-3100 is available {} MT'.format(dt_string))
+    notify.send('AB-3100 is available {} MT'.format(dt_string))
+    webbrowser.open(source)  
 
 
 #=====================
@@ -139,9 +141,10 @@ dt_string = now.strftime("%m/%d/%Y %H:%M")
 # Check if availability tag object has length greater than 0
 if len(availability) > 0:
     print('AB-5000 is not available {}'.format(dt_string))
-    #notify.send('AB-5000 is not available {}'.format(dt_string))    
+    #notify.send('(Test) AB-5000 is not available {}'.format(dt_string))    
     
 else:
     # send alert
-    print('AB-5000 is available {}!'.format(dt_string))
-    notify.send('AB-5000 is available {}!'.format(dt_string))  
+    print('AB-5000 is available {} MT'.format(dt_string))
+    notify.send('AB-5000 is available {} MT'.format(dt_string))
+    webbrowser.open(source)  
