@@ -176,4 +176,5 @@ if len(availability) > 0:
 else:
     # send alert
     print('AB-5100 is available {}!'.format(dt_string))
+    notify.send('AB-5100 is available {} MT'.format(dt_string))
     webbrowser.open(source)
