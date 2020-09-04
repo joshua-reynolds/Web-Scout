@@ -186,3 +186,15 @@ else:
     send_message(body)
     print(body)    
     webbrowser.open(url)
+
+#=====================
+# LOGGING
+#=====================
+
+# get current time
+now = datetime.now()
+dt_string = now.strftime("%m/%d/%Y %H:%M")
+
+f = open("Web-Scout.log", "a")
+f.write("Run completed at {}\n".format(dt_string))
+f.close()
