@@ -195,6 +195,11 @@ else:
 now = datetime.now()
 dt_string = now.strftime("%m/%d/%Y %H:%M")
 
-f = open("Web-Scout.log", "a")
+# get the absolute path, since we'll be running this from command line
+dirname = os.path.dirname(__file__)
+log = os.path.join(dirname, 'Web-Scout.log')
+
+# write to log
+f = open(log, "a")
 f.write("Run completed at {}\n".format(dt_string))
 f.close()
