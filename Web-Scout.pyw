@@ -7,6 +7,11 @@ import bs4 as bs
 import webbrowser
 from twilio.rest import Client
 
+"""
+-Amazon checks for bots, so chromedriver is required to access the page text
+-RepFitness is less guarded so only urllib is required
+"""
+
 #=================================
 # Setup
 #=================================
@@ -27,10 +32,7 @@ def send_message(message_body):
 # Powerblock Compact Stand (Amazon)
 #====================================
 
-"""
-Amazon checks for bots, so chromedriver is required to access the page text
-RepFitness is less guarded so only urllib is required
-"""
+
 
 # get the path of ChromeDriverServer
 dir = os.path.dirname(__file__)
@@ -49,8 +51,8 @@ driver.implicitly_wait(10)
 # powerblock amazon url 
 url='https://www.amazon.com/POWERBLOCK-Compact-Weight-Stand-Black/dp/B01A9981M0/ref=sr_1_1?crid=1F57GF306BHXP&dchild=1&keywords=powerblock+compact+weight+stand&qid=1597100715&sprefix=powerblock+com%2Caps%2C203&sr=8-1'
 
-## test url
-#url2 = 'https://www.amazon.com/Ghost-Tsushima-PlayStation-4/dp/B08BSKT43L/ref=zg_bsnr_videogames_home_1?_encoding=UTF8&psc=1&refRID=1Y7M1E00G5NXSZJ0X6R4'
+# test url
+url2 = 'https://www.amazon.com/Ghost-Tsushima-PlayStation-4/dp/B08BSKT43L/ref=zg_bsnr_videogames_home_1?_encoding=UTF8&psc=1&refRID=1Y7M1E00G5NXSZJ0X6R4'
 
 # get the page text
 driver.get(url)
@@ -69,7 +71,7 @@ if amz_price:
     print(body)
     webbrowser.open(url)
 else:
-    print('Powerblock LCS is not available {}'.format(dt_string))
+    print('Powerblock Large Compact Stand is not available {}'.format(dt_string))
     
 # close the browser window
 driver.quit()
@@ -79,7 +81,8 @@ driver.quit()
 #=====================
 
 # open the url
-source = urllib.request.urlopen('https://www.repfitness.com/strength-equipment/strength-training/benches/rep-ab3000-fid-adj-bench').read()
+url = 'https://www.repfitness.com/strength-equipment/strength-training/benches/rep-ab3000-fid-adj-bench'
+source = urllib.request.urlopen(url).read()
 
 #get the soup
 soup = bs.BeautifulSoup(source,'lxml')
@@ -99,14 +102,15 @@ else:
     body = 'AB-3000 is available {} MT'.format(dt_string)
     send_message(body)
     print(body)    
-    webbrowser.open(source)    
+    webbrowser.open(url)    
 
 #=====================
 # REP AB 3100
 #=====================
 
 # open the url
-source = urllib.request.urlopen('https://www.repfitness.com/strength-equipment/strength-training/benches/rep-ab-3100-fi-bench').read()
+url = 'https://www.repfitness.com/strength-equipment/strength-training/benches/rep-ab-3100-fi-bench'
+source = urllib.request.urlopen(url).read()
 
 #get the soup
 soup = bs.BeautifulSoup(source,'lxml')
@@ -118,15 +122,14 @@ dt_string = now.strftime("%m/%d/%Y %H:%M")
 
 # Check if availability tag object has length greater than 0
 if len(availability) > 0:
-    print('AB-3100 is not available {}'.format(dt_string))
-    #notify.send('(Test) AB-3100 is not available {}'.format(dt_string))    
+    print('AB-3100 is not available {}'.format(dt_string)) 
     
 else:
     # send alert
     body = 'AB-3100 is available {} MT'.format(dt_string)
     send_message(body)
     print(body)    
-    webbrowser.open(source)  
+    webbrowser.open(url)  
 
 
 #=====================
@@ -134,7 +137,8 @@ else:
 #=====================
 
 # open the url
-source = urllib.request.urlopen('https://www.repfitness.com/strength-equipment/strength-training/benches/rep-ab-5000').read()
+url = 'https://www.repfitness.com/strength-equipment/strength-training/benches/rep-ab-5000'
+source = urllib.request.urlopen(url).read()
 
 #get the soup
 soup = bs.BeautifulSoup(source,'lxml')
@@ -147,14 +151,13 @@ dt_string = now.strftime("%m/%d/%Y %H:%M")
 # Check if availability tag object has length greater than 0
 if len(availability) > 0:
     print('AB-5000 is not available {}'.format(dt_string))
-    #notify.send('(Test) AB-5000 is not available {}'.format(dt_string))    
     
 else:
     # send alert
     body = 'AB-5000 is available {} MT'.format(dt_string)
     send_message(body)
     print(body)    
-    webbrowser.open(source)
+    webbrowser.open(url)
 
     
 #=====================
@@ -162,7 +165,8 @@ else:
 #=====================
 
 # open the url
-source = urllib.request.urlopen('https://www.repfitness.com/rep-ab-5100').read()
+url = 'https://www.repfitness.com/rep-ab-5100'
+source = urllib.request.urlopen(url).read()
 
 #get the soup
 soup = bs.BeautifulSoup(source,'lxml')
@@ -181,4 +185,4 @@ else:
     body = 'AB-5100 is available {}!'.format(dt_string)
     send_message(body)
     print(body)    
-    webbrowser.open(source)
+    webbrowser.open(url)
