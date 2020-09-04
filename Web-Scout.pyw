@@ -50,10 +50,10 @@ driver.implicitly_wait(10)
 url='https://www.amazon.com/POWERBLOCK-Compact-Weight-Stand-Black/dp/B01A9981M0/ref=sr_1_1?crid=1F57GF306BHXP&dchild=1&keywords=powerblock+compact+weight+stand&qid=1597100715&sprefix=powerblock+com%2Caps%2C203&sr=8-1'
 
 ## test url
-url2 = 'https://www.amazon.com/Ghost-Tsushima-PlayStation-4/dp/B08BSKT43L/ref=zg_bsnr_videogames_home_1?_encoding=UTF8&psc=1&refRID=1Y7M1E00G5NXSZJ0X6R4'
+#url2 = 'https://www.amazon.com/Ghost-Tsushima-PlayStation-4/dp/B08BSKT43L/ref=zg_bsnr_videogames_home_1?_encoding=UTF8&psc=1&refRID=1Y7M1E00G5NXSZJ0X6R4'
 
 # get the page text
-driver.get(url2)
+driver.get(url)
 html = driver.page_source
 soup = bs.BeautifulSoup(html, 'lxml')
 amz_price = soup.find(id='priceblock_ourprice')
