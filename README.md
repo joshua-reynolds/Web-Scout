@@ -1,5 +1,5 @@
-# Web-Scout-Twilio
-Check websites and send notifications to phone using twilio
+# Web-Scout
+Check websites and send text message alerts to phone using twilio
 
 ### Dependencies
 - bs4
