@@ -80,7 +80,7 @@ url3 = 'https://powerblock.com/product/pro-series-kettlebell-handle/'
 # separator
 print('-'*20)
 
-# powerblock amazon url 
+# powerblock url 
 url='https://powerblock.com/product/compact-stand/'
 
 # get the page text
